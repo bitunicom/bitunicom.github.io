@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Account - BitUnicom</title>
+    <title>sha3-keccak - BitUnicom</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -29,6 +29,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      h1 {
+        font-size: 24px;
+        color: #303030;
+        font-weight: 600;
+      }
+
+      h3 {
+        font-size: 19px;
+        color: #303030;
+        font-weight: 600;
+      }
+    </style>
   </head>
 
   <body>
@@ -54,13 +68,29 @@
 
     <div class="container">
       <div>
-        <h1 class="text-center">Account</h1>
-        <h4>Unified Account Management</h4>
+        <h1 class="text-center">SHA3</h1>
+        <h3>Keccak</h3>
+        <p>
+          <a href="https://keccak.team/keccak.html">Team:Guido Bertoni, Joan Daemen, Michaël Peeters, and Gilles Van Assche</a>
+        </p>
         <p>
           <a href="https://en.wikipedia.org/wiki/SHA-3">SHA-3 vs Keccak</a>
         </p>
         <p>
-          <a href="https://www.krackattacks.com/">SHA-3</a>
+          To generate account address, Ethereum uses Keccak256 hash algorithm, takes public key as input, outputs 256bit(32 bytes, 64 hex characters) hash value, the last 40 characters(20 bytes, 160 bits) is kept as
+          account address, the first 24 characters are dropped.
+        </p>
+      </div>
+
+      <div>
+        <h1 class="text-center">Public key generation</h1>
+        <h3>secp256k1</h3>
+        <p>
+          Ethereum use algorithm secp256k1 curve to generate curve private key
+        </p>
+
+        <p>
+          <a href="https://kobl.one/blog/create-full-ethereum-keypair-and-address/">Detailed steps</a>
         </p>
       </div>
     </div><!-- /.container -->
