@@ -60,7 +60,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="../index.html">Home</a></li>
+            <li class="active"><a href="sha3-keccak.html">SHA3-Keccak256</a></li>
+            <li><a href="account-system.html">Account</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -74,8 +75,12 @@
           <a href="https://keccak.team/keccak.html">Team:Guido Bertoni, Joan Daemen, Michaël Peeters, and Gilles Van Assche</a>
         </p>
         <p>
-          <a href="https://en.wikipedia.org/wiki/SHA-3">SHA-3 vs Keccak</a>
+          <a href="https://en.wikipedia.org/wiki/SHA-3">SHA-3 wiki</a>
         </p>
+        <p>
+          <a href="https://ethereum.stackexchange.com/questions/550/which-cryptographic-hash-function-does-ethereum-use">SHA-3 vs Keccak</a>
+        </p>
+
         <p>
           To generate account address, Ethereum uses Keccak256 hash algorithm, takes public key as input, outputs 256bit(32 bytes, 64 hex characters) hash value, the last 40 characters(20 bytes, 160 bits) is kept as
           account address, the first 24 characters are dropped.
@@ -84,11 +89,14 @@
 
       <div>
         <h1 class="text-center">Public key generation</h1>
-        <h3>secp256k1</h3>
+        <h3>secp256k1 - parameters of <a href="https://en.bitcoin.it/wiki/Elliptic_Curve_Digital_Signature_Algorithm">CDSA</a></h3>
         <p>
           Ethereum use algorithm secp256k1 curve to generate curve private key
         </p>
 
+        <p>
+          <a href="https://en.bitcoin.it/wiki/Secp256k1">Secp256k1 wiki</a>
+        </p>
         <p>
           <a href="https://kobl.one/blog/create-full-ethereum-keypair-and-address/">Detailed steps</a>
         </p>
