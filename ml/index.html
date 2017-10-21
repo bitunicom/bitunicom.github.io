@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Tensorflow - BitUnicom</title>
+    <title>Alphago</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -67,10 +67,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">home</a></li>
+            <li class="active"><a href="#">home</a></li>
             <li><a href="alphago.html">AlphaGo</a></li>
             <li><a href="alphago-zero.html">AlphaGo-Zero</a></li>
-            <li class="active"><a href="#">Tensorflow</a></li>
+            <li><a href="tensorflow.html">Tensorflow</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -78,44 +78,12 @@
 
     <div class="container">
       <div>
-        <h1 class="text-center">Tensorflow</h1>
-        <h3>Tensorflow</h3>
-        <p>
-          <a href="https://www.tensorflow.org/install/install_linux#InstallingVirtualenv">Tensorflow Install</a>
-        </p>
+        <h1 class="text-center">Deep Learning</h1>
+          <p><a href="alphago.html">Alphago</a></p>
+          <p><a href="alphago-zero.html">Alphago Zero</a></p>
+          <p><a href="tensorflow.html">Tensorflow Guide</a></p>
+      </div>
 
-        <h3>CUDA</h3>
-        <p>
-          <a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Releases</a>
-        </p>
-        <p>
-          <a href="https://developer.nvidia.com/rdp/cudnn-download">CUDNN Downloads</a>
-        </p>
-
-        <h3>CUDA8 + cuDNN7</h3>
-        <p>
-          install cuda: $ sudo sh cuda_8.0.61_375.26_linux.run
-        </p>
-        <p>
-          <a href="https://developer.nvidia.com/rdp/cudnn-download">CUDNN Downloads</a>
-        </p>
-
-        <h3>CUDA8+cudnn6 deb package install(verified)</h3>
-        <h4>Install CUDA</h4>
-        <p>
-          # install kernel headers and development packages<br>
-          $ sudo apt-get install linux-headers-$(uname -r)<br>
-          $ sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb<br>
-          $ sudo apt-get update<br>
-          $ sudo apt-get install cuda<br>
-          # <strong>install cublas patch<br></strong>
-          $ sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64.deb<br>
-        </p>
-
-        <h4>Install cuDNN</h4>
-        <p>
-          $ sudo dpkg -i libcudnn6_6.0.21-1+cuda8.0_amd64.deb
-        </p>
     </div><!-- /.container -->
 
 
