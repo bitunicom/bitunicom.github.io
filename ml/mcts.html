@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Alphago-Zero</title>
+    <title>MCTS</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -46,9 +46,9 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">home</a></li>
-            <li class="active"><a href="#">Alphago-Zero</a></li>
+            <li><a href="#">Alphago-Zero</a></li>
             <li><a href="alphago-zero-ch.html">AlphaGo-Zero(CH)</a></li>
-            <li><a href="mcts.html">MCTS</a></li>
+            <li class="active"><a href="#">MCTS</a></li>
             <li><a href="tensorflow.html">Tensorflow</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -57,32 +57,21 @@
 
     <div class="container">
       <div>
-        <h1 class="text-center">Alphago-Zero</h1>
+        <h1 class="text-center">MCTS</h1>
+        <h4>Monte Carlo Tree Search</h4>
         <p>
-          <a href="https://deepmind.com/blog/alphago-zero-learning-scratch/alphago-zero.html">deepmind blog</a>
+          <a href="http://mcts.ai/">Introduction</a>
         </p>
         <p>
-          <a href="https://www.nature.com/nature/journal/v550/n7676/full/nature24270.html">nature paper</a>
-        </p>
-        <p>
-          <a href="https://deepmind.com/documents/119/agz_unformatted_nature.pdf">Paper Download</a>
-        </p>
-        <p>
-          <a href="https://www.youtube.com/watch?v=tXlM99xPQC8">Youtube</a>
-        </p>
-        <p>
-          <a href="https://www.nature.com/articles/nature24270.epdf?author_access_token=VJXbVjaSHxFoctQQ4p2k4tRgN0jAjWel9jnR3ZoTv0PVW4gB86EEpGqTRDtpIz-2rmo8-KG06gqVobU5NSCFeHILHcVFUeMsbvwS-lxjqQGg98faovwjxeTUgZAUMnRQ">Nature Paper</a>
-        </p>
-        <p>
-          <a href="https://www.nature.com/articles/nature24270.epdf?author_access_token=VJXbVjaSHxFoctQQ4p2k4tRgN0jAjWel9jnR3ZoTv0PVW4gB86EEpGqTRDtpIz-2rmo8-KG06gqVobU5NSCFeHILHcVFUeMsbvwS-lxjqQGg98faovwjxeTUgZAUMnRQ">Supplementary Information</a>
-        </p>
-        <p>
-          <a href="https://www.reddit.com/r/MachineLearning/comments/7780ok/r_alphago_zero_learning_from_scratch_deepmind/#bottom-comments">reddit:machine learning</a>
-        </p>
-        <p>
-          <a href="https://www.reddit.com/r/programming/comments/7787rj/alphago_zero_learning_from_scratch_deepmind/#bottom-comments">reddit:programming</a>
+          <a href="http://mcts.ai/code/python.html">Python Source&nbsp;</a><a href="http://mcts.ai/code/UCT.py">Code</a>
         </p>
 
+        <br>
+        <h4>Steps</h4>
+        <span>Select: select optimal child based on upper confidence bound(UCB) recursively until Leaf node L is reached</span><br>
+        <span>Expand: if L is not terminal node, create child nodes, select C based on UCB</span><br>
+        <span>Simulate/Evaluation: run playout from C</span><br>
+        <span>Back Propagation: update path info based on playout result from C up to root node, including visit count.</span>
       </div>
 
     </div><!-- /.container -->

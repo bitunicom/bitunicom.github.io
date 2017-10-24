@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Alphago</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/home.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="http://www.hostmath.com/Math/MathJax.js?config=OK"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      h4 {
+        font-size: 19px;
+        color: #303030;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">BitUnicom</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">home</a></li>
+            <li><a href="alphago-zero.html">Alphago-Zero</a></li>
+            <li class="active"><a href="#">AlphaGo-Zero(CH)</a></li>
+            <li><a href="mcts.html">MCTS</a></li>
+            <li><a href="tensorflow.html">Tensorflow</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div>
+        <h1 class="text-center">Alphago-Zero  Mastering the Game of Go without Human Knowledge</h1>
+        <h4>
+          人工智能的一个长期目标是设计具有在挑战性的领域学习超越人类能力的算法。 最近AlphaGo成为第一个打败围棋世界冠军的程序。 AlphaGo的树搜索算法深度结合神经网络评估棋盘状态和选择落子位置。
+          神经网络通过监督式学习人类专家的棋谱以及增强式学习自我对弈的棋谱两种方式进行训练。 本文引入一种仅依赖于强化学习的算法(没有人类棋谱，人类指导，或超越游戏规则的领域知识)。
+          通过训练神经网络来预测有利于AlphaGo自己的落子位置，以及游戏的胜者，alphago成为了自己的老师。 该神经网络提高了树搜索的强度，导致了下一次迭代中更高质量的落子位置选择和更强的自我对弈。
+          从零开始，我们的新程序Alphago-Zero达到了超越人类的水平: 对之前发布的击败世界冠军的alphago版本取得了100:0胜绩。
+        </h4>
+
+        <p>
+          利用监督式学习系统复现人类专家级的决策能力已经使人工智能取得了长足进步。 然而，专家数据通常是昂贵的，甚至不可靠或者难以获取的。 即使有可靠的数据可用，这种方式训练出来的系统其性能也可能有天花板上限。
+          相比之下，强化学习系统是从它自己的经验中被训练，原则上允许他们具有超越人类的能力，并且完全应用到人类水平匮乏的领域。
+          最近通过强化学习训练深度神经网络使得这方面取得快速进展。 在电脑游戏方面这些系统已经超越人类表现，例如Atari 6, Atari 7 以及 3D virtual environments。
+          然而，在人类智力方面最具挑战性的领域 - 例如被公认为人工智能领域象征性挑战的围棋要求在巨大的搜索空间进行精确并且复杂的提前搜索。
+          当前在这些领域还没有实现达到人类水平的通用性算法。<br><br>
+
+          AlphaGo是第一个超越人类的围棋程序。 之前发布的称为AlphaGo Fan的版本，在2015年10月击败了欧洲冠军樊辉。 AlphaGo Fan使用两个深度神经网络：一个输出落子位置概率的策略网络，
+          和输出棋盘状态评估的价值网络。 策略网络最初通过监督学习精确预测人类专家的落子位置， 然后通过策略梯度增强学习改进。 价值网络被训练来预测政策网络对自己的游戏胜利者。
+          价值网络被训练用于评估[通过策略网络自我对弈的棋局]的胜者。
+          一旦训练完成，这些网络被组合在MTCS中进行提前搜索: 使用策略网络选择具有较高落子概率的位置，使用价值网络评价搜索树中的棋盘状态。
+          后续的版本AlphaGo-Lee使用类似的方法在2016年3月击败拥有18个界世界冠军头衔的李世石。<br><br>
+
+          新的程序AlphaGo-Zero在几个重要方面不同于AlphaGo-Fan和AlphaGo-Lee。
+          首先，从[没有任何监督或使用人类棋谱, 随机选择落子进行对弈]开始，它仅仅通过强化学习自我训练。
+          其次，它只使用棋盘上的黑子和白子作为特征输入。
+          第三，它只使用单个神经网络，而不是分离的策略网络和价值网络。
+          最后，它使用更简单的树搜索算法:依赖于此单个神经网络进行状态评估和落子采样, 没有进行任何蒙特卡洛走子模拟。
+          为了达到此效果，我们引入新的增强学习算法: 在训练阶段提前搜索,导致快速改进和精确稳定的学习。
+
+        </p>
+        <h4>1 AlphaGo-Zero中的增强学习</h4>
+        <p>
+          我们的新方法使用了带参数\theta的深度神经网络。
+        </p>
+
+      </div>
+
+      <div>
+        <h1 class="text-center">Terms in Go</h1>
+        <p><strong>Pass:</strong> pass means the player stop moving</p>
+        <p><strong>ko:&nbsp;</strong><a href="https://senseis.xmp.net/?Ko">打劫， 双方交互落子可以重复原来的状态</a></p>
+      </div>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
